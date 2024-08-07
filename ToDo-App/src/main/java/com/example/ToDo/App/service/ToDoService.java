@@ -26,12 +26,15 @@ public class ToDoService {
 		
 	}
 	
-	boolean updateStatus(){
+	boolean updateStatus(Long id){
+		ToDo todo = getToDoItemById(id);
+		todo.setStatus("Completed");
 		
+		return saveOrUpdateToDoItem(todo);
 		
 	}
 	
-	boolean saveOrUpdateToDoItem(){
+	boolean saveOrUpdateToDoItem(ToDo todo){
 		
 	}
 	
