@@ -14,6 +14,7 @@ public class ToDoService {
 	
 	@Autowired
 	IToDoRepo repo;
+	
 	public List<ToDo> getAllToDoItems(){
 		ArrayList<ToDo> todoList = new ArrayList<>();
 		repo.findAll().forEach(todo -> todoList.add(todo));
@@ -23,7 +24,6 @@ public class ToDoService {
 	
 	public ToDo getToDoItemById(Long id){
 		return repo.findById(id).get();
-		
 	}
 	
 	public boolean updateStatus(Long id){
@@ -31,25 +31,28 @@ public class ToDoService {
 		todo.setStatus("Completed");
 		
 		return saveOrUpdateToDoItem(todo);
-		
 	}
 	
 	public boolean saveOrUpdateToDoItem(ToDo todo){
-		ToDo updatedObject = repo.save(todo);
+		ToDo updatedObj = repo.save(todo);
 		
-		if(getToDoItemById(updatedObject.getId()) != null) {
+		if (getToDoItemById(updatedObj.getId()) != null) {
 			return true;
 		}
+		
 		return false;
-	}
+		
+	} 
 	
 	public boolean deleteToDoItem(Long id){
 		repo.deleteById(id);
 		
-		if(getToDoItemById(id) == null) {
+		if(repo.findById(id).isEmpty()) {
 			return true;
 		}
+		
 		return false;
+		
 	}
 
 }
