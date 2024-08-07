@@ -43,8 +43,13 @@ public class ToDoService {
 		return false;
 	}
 	
-	boolean deleteToDoItem(){
+	boolean deleteToDoItem(Long id){
+		repo.deleteById(id);
 		
+		if(getToDoItemById(id) == null) {
+			return true;
+		}
+		return false;
 	}
 
 }
