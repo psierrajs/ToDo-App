@@ -3,6 +3,9 @@ package com.example.ToDo.App.model;
 
 
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,6 +25,7 @@ public class ToDo {
 	private String title;
 	
 	@Column
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date date;
 	
 	@Column
