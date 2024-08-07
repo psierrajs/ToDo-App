@@ -76,8 +76,15 @@ public class ToDoController {
 		
 	}
 	
-	@GetMapping
-	public deleteToDoItem() {
+	@GetMapping("/deleteToDoItem/{id}")
+	public String deleteToDoItem(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+		if(service.deleteToDoItem(id)) {
+			redirectAttributes.addFlashAttribute("message", "Delete Successful");
+			return "redirect:/viewToDoList";
+		}
 		
+		redirectAttributes.addFlashAttribute("message", "Delete Failure");
+		return "redirect:/viewToDoList";
 	}
+
 }
