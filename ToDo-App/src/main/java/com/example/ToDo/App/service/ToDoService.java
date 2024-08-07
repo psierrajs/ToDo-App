@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.ToDo.App.ToDo;
+import com.example.ToDo.App.model.ToDo;
 import com.example.ToDo.App.repo.IToDoRepo;
 
 @Service
