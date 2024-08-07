@@ -39,8 +39,9 @@ public class ToDoController {
 		
 	}
 
-	@GetMapping
+	@GetMapping("/addToDoItem")
 	public String addToDoItem() {
+		return "AddToDoItem";
 		
 	}
 	
