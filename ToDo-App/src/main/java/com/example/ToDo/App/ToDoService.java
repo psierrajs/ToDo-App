@@ -5,25 +5,25 @@ import org.springframework.stereotype.Service;
 @Service
 public class ToDoService {
 	
-	getAllToDoItems(){
+	List<ToDo> getAllToDoItems(){
 		
 	}
 	
-	getToDoItemById(){
-		
-		
-	}
-	
-	updateStatus(){
+	ToDo getToDoItemById(){
 		
 		
 	}
 	
-	saveOrUpdateToDoItem(){
+	boolean updateStatus(){
+		
 		
 	}
 	
-	deleteToDoItem(){
+	boolean saveOrUpdateToDoItem(){
+		
+	}
+	
+	boolean deleteToDoItem(){
 		
 	}
 
