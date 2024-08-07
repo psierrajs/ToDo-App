@@ -26,7 +26,7 @@ public class ToDoService {
 		
 	}
 	
-	boolean updateStatus(Long id){
+	public boolean updateStatus(Long id){
 		ToDo todo = getToDoItemById(id);
 		todo.setStatus("Completed");
 		
