@@ -34,7 +34,7 @@ public class ToDoService {
 		
 	}
 	
-	boolean saveOrUpdateToDoItem(ToDo todo){
+	public boolean saveOrUpdateToDoItem(ToDo todo){
 		ToDo updatedObject = repo.save(todo);
 		
 		if(getToDoItemById(updatedObject.getId()) != null) {

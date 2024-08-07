@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.ToDo.App.ToDo;
 import com.example.ToDo.App.service.ToDoService;
 
 
@@ -40,14 +41,21 @@ public class ToDoController {
 	}
 
 	@GetMapping("/addToDoItem")
-	public String addToDoItem() {
+	public String addToDoItem(Model model) {
+		model.addAttribute("todo", new ToDo());
 		return "AddToDoItem";
 		
 	}
 	
-	@PostMapping
-	public String saveToDoItem() {
-		
+	@PostMapping("/saveToDoItem")
+	public String saveToDoItem(ToDo todo, RedirectAttributes redirectAttributes) {
+		if (service.saveOrUpdateToDoItem(todo)) {
+			redirectAttributes.addFlashAttribute("message", "Save Successful");
+			return "redirect:/viewToDoList";
+			
+		}
+		redirectAttributes.addFlashAttribute("message", "Save Failure");
+		return "redirect:/addToDoItem";
 	}
 	
 	@GetMapping
