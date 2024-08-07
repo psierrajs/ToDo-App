@@ -1,7 +1,8 @@
 package com.example.ToDo.App;
 
-import javax.xml.crypto.Data;
 
+
+import java.util.Date;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ public class ToDo {
 	private String title;
 	
 	@Column
-	private Data date;
+	private Date date;
 	
 	@Column
 	private String status;
@@ -46,11 +47,11 @@ public class ToDo {
 		this.title = title;
 	}
 
-	public Data getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(Data date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
